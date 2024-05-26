@@ -4,73 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Management System</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<style>
-    
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-#container {
-    display: flex;
-    width: 100%;
-}
-
-#sidebar {
-    width: 200px;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
-    height: 100vh;
-    position: fixed;
-}
-
-#sidebar h2 {
-    text-align: center;
-}
-
-#sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#sidebar ul li {
-    margin: 20px 0;
-}
-
-#sidebar ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-#sidebar ul li a:hover {
-    text-decoration: underline;
-}
-
-#main-content {
-    margin-left: 220px;
-    padding: 20px;
-    box-sizing: border-box;
-    width: calc(100% - 220px);
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-section h1 {
-    margin-bottom: 10px;
-}
-
-</style>
 <body>
     <div id="container">
         <nav id="sidebar">
-            <h2>Hotel Management System</h2>
+            <h2>JBTK</h2>
             <ul>
                 <li><a href="#dashboard">Dashboard</a></li>
                 <li><a href="#reservations">Reservations (CRM)</a></li>
@@ -83,7 +22,34 @@ section h1 {
         <main id="main-content">
             <section id="dashboard">
                 <h1>Dashboard</h1>
-                <p>Overview of hotel performance metrics.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <h2>Occupancy Rate</h2>
+                        <p id="occupancyRate">Loading...</p>
+                    </div>
+                    <div class="stat">
+                        <h2>Total Reservations</h2>
+                        <p id="totalReservations">Loading...</p>
+                    </div>
+                    <div class="stat">
+                        <h2>Revenue</h2>
+                        <p id="revenue">Loading...</p>
+                    </div>
+                    <div class="stat">
+                        <h2>Available Rooms</h2>
+                        <p id="availableRooms">Loading...</p>
+                    </div>
+                </div>
+                <div class="charts">
+                    <div class="chart">
+                        <h2>Occupancy Over Time</h2>
+                        <canvas id="occupancyChart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h2>Revenue Over Time</h2>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
             </section>
             <section id="reservations">
                 <h1>Reservations (CRM)</h1>
@@ -107,29 +73,7 @@ section h1 {
             </section>
         </main>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('#sidebar a');
-    const sections = document.querySelectorAll('section');
-
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            sections.forEach(section => {
-                section.style.display = 'none';
-                if (section.id === targetId) {
-                    section.style.display = 'block';
-                }
-            });
-        });
-    });
-
-    // Display the dashboard section by default
-    sections.forEach(section => section.style.display = 'none');
-    document.querySelector('#dashboard').style.display = 'block';
-});
-
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
