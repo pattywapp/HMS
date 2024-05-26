@@ -50,23 +50,28 @@
                         <canvas id="revenueChart"></canvas>
                     </div>
                 </div>
+
             </section>
             <section id="reservations">
                 <h1>Reservations (CRM)</h1>
                 <p>Manage guest reservations and profiles.</p>
             </section>
+
             <section id="housekeeping">
                 <h1>Housekeeping (ERP)</h1>
                 <p>Manage room status and housekeeping tasks.</p>
             </section>
+            
             <section id="staff">
                 <h1>Staff Management (HRMS)</h1>
                 <p>Manage staff schedules and performance.</p>
             </section>
+
             <section id="inventory">
                 <h1>Inventory (SCM)</h1>
                 <p>Track and manage inventory levels.</p>
             </section>
+            
             <section id="content">
                 <h1>Website Content (CMS)</h1>
                 <p>Update and manage website content.</p>
