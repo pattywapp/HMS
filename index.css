@@ -130,8 +130,8 @@ section h1 {
 }
 
 #addReservationForm button {
-    width: auto; /* Make button auto-width */
-    padding: 10px 20px; /* Add more padding for better appearance */
+    width: auto; 
+    padding: 10px 20px; 
     background-color: #373837;
     color: white;
     border: none;
@@ -142,7 +142,6 @@ section h1 {
     background-color: #352ace;
 }
 
-/* Section Styles */
 section {
     margin-bottom: 20px;
 }
@@ -151,7 +150,6 @@ section h1, section h2 {
     margin-top: 0;
 }
 
-/* Scrollbar Styling */
 #main-content {
     scrollbar-width: thin;
     scrollbar-color: #888 #f4f4f4;
