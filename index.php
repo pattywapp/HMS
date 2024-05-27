@@ -50,12 +50,32 @@
                         <canvas id="revenueChart"></canvas>
                     </div>
                 </div>
+            </section>
 
-            </section>
             <section id="reservations">
-                <h1>Reservations (CRM)</h1>
-                <p>Manage guest reservations and profiles.</p>
+                <h2>Recent Reservations</h2>
+                <div id="reservationList"></div>
+                <h2>Add New Reservation</h2>
+                <form id="addReservationForm">
+                    <label for="room_id">Room ID:</label>
+                    <input type="number" id="room_id" name="room_id" required>
+
+                    <label for="guest_name">Guest Name:</label>
+                    <input type="text" id="guest_name" name="guest_name" required>
+
+                    <label for="check_in_date">Check-in Date:</label>
+                    <input type="date" id="check_in_date" name="check_in_date" required>
+
+                    <label for="check_out_date">Check-out Date:</label>
+                    <input type="date" id="check_out_date" name="check_out_date" required>
+
+                    <label for="status">Status:</label>
+                    <input type="text" id="status" name="status" required>
+
+                    <button type="submit">Add Reservation</button>
+                </form>
             </section>
+
 
             <section id="housekeeping">
                 <h1>Housekeeping (ERP)</h1>

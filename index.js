@@ -83,3 +83,51 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error fetching dashboard data:', error));
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch and display reservations
+    function fetchReservations() {
+        fetch('fetch_reservations.php')
+            .then(response => response.json())
+            .then(data => {
+                const reservationList = document.getElementById('reservationList');
+                reservationList.innerHTML = ''; // Clear previous data
+                data.forEach(reservation => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `
+                        <p>Room ID: ${reservation.room_id}</p>
+                        <p>Guest Name: ${reservation.guest_name}</p>
+                        <p>Check-in Date: ${reservation.check_in_date}</p>
+                        <p>Check-out Date: ${reservation.check_out_date}</p>
+                        <p>Status: ${reservation.status}</p>
+                    `;
+                    reservationList.appendChild(div);
+                });
+            })
+            .catch(error => console.error('Error fetching reservations:', error));
+    }
+
+    // Call the function to fetch and display reservations
+    fetchReservations();
+
+    // Handle form submission for adding new reservation
+    const addReservationForm = document.getElementById('addReservationForm');
+    addReservationForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(addReservationForm);
+        fetch('add_reservation.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                fetchReservations(); // Refresh the list after adding new reservation
+                addReservationForm.reset(); // Clear the form
+            } else {
+                console.error('Error adding reservation:', data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+});
